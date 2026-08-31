@@ -10,10 +10,6 @@
    const cleanSubject = (subject) =>
      subject.replace(/^(?:FWD|FW|Fwd|Re|RE)\s*:\s*/g, '').trim();
 
-   // Line-oriented parser: an underscore delimiter toggles header mode;
-   // consecutive "Field: value" lines become a fenced code block, closed by
-   // the first non-header line. Works whether or not the body ends with a
-   // closing delimiter (Outlook forwards render a single rule).
    const parseSegments = (raw) => {
      const segments = [];
      let text = [];        // pending plain-text lines
@@ -69,13 +65,11 @@
      }
      if (rest) pieces.push(rest);
 
-     // Code segments are re-fenced per piece so a fence never spans messages.
      return seg.type === 'code'
        ? pieces.map((p) => `\`\`\`\n${p}\n\`\`\``)
        : pieces;
    };
 
-   // Segments: ≤2000-char messages, joined by newlines. 
    const chunkSegments = (segments) => {
      const messages = [];
      let current = '';
@@ -95,7 +89,6 @@
      return messages;
    };
 
-   // Pull the fields we care about out of a GmailMessage.
    const extractMail = (msg) => ({
      subject: cleanSubject(msg.getSubject()),
      segments: parseSegments(msg.getPlainBody()),
