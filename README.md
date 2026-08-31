@@ -18,6 +18,8 @@ Pre-reqs:
      * It is up to you to setup forwarding emails to the keijiban deployment's Gmail. If you happen to be using an outlook account that happens to restrict automating the forwarding of emails, then I suggest looking into using Power Automate.
      * Note: you can also use a list. just separate emails with a single comma (`,`). The email `noreply-apps-scripts-notifications@google.com` also provides notifications for errors.
 
+4. Make sure to save the script properties and the script will be able to connect to discord, once the CI is set up.
+
 ### Set up CI
 
 *Get Credentials for Clasp*
