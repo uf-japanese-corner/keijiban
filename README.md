@@ -44,3 +44,11 @@ This is in the repo, but if you need to manually obtain it:
 - Go to the link and switch to "on"
 
 Now you can run the CI!
+
+### Setting the Trigger (Deployment)
+
+When you are ready for messages to be posted publically:
+
+1. Go to your Apps Script deployment
+2. Go to the Triggers tab
+3. Add trigger > under "select timer based on hour" select "date based timer" and set to a reasonable hour of the day (like 10~11 AM)
