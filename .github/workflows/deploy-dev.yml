@@ -1,0 +1,44 @@
+name: deploy to dev
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/Hydrogen'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Syntax check
+        run: |
+          for f in *.gs; do
+            cp "$f" "/tmp/$f.js"
+            node --check "/tmp/$f.js"
+          done
+
+      - name: Copy clasprc
+        run: echo "$CLASPRC_JSON" > "$HOME/.clasprc.json"
+        env:
+          CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
+
+      - name: Copy clasp envars
+        run: echo "$CLASP_JSON" > .clasp.json
+        env:
+          CLASP_JSON: ${{ secrets.CLASP_JSON }}
+
+      - name: List files to push
+        run: npx clasp status
+
+      - name: Push to Apps Script
+        run: npx clasp push -f
+        
