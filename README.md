@@ -24,4 +24,10 @@ Clasp is a command-line tool used to push code to an Apps Script deployment. In 
 2. Go to settings > copy the script ID
 4. Create new repository secrets for the above, using the contents of `.clasp.json.example` with the pasted script ID
 
+`appsscript.json`
+This is in the repo, but if you need to manually obtain it:
+1. Go to one of your Apps Script deployments
+2. Go to settings
+3. Check [show "appsscript.json" manifest file in editor](https://developers.google.com/apps-script/concepts/manifests?hl=ja)
+
 Now you can run the CI!
