@@ -32,7 +32,7 @@ jobs:
           CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
 
       - name: Copy clasp envars
-        run: echo "$CLASP_JSON" > .clasp.json
+        run: echo "$CLASP_JSON_DEV" > .clasp.json
         env:
           CLASP_JSON: ${{ secrets.CLASP_JSON }}
 
