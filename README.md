@@ -16,6 +16,7 @@ Pre-reqs:
    * DISCORD_WEBHOOK_URL: Go to the Discord channel you want the webhook to post in > Connected Services > Webhooks > Create webhook > Copy webhook URL. Paste the full url as the value of this envar.
    * SENDER_WHITELIST: This is the email in Gmail which you want to forward messages from. *All emails received from this user will be posted publicly.*
      * It is up to you to setup forwarding emails to the keijiban deployment's Gmail. If you happen to be using an outlook account that happens to restrict automating the forwarding of emails, then I suggest looking into using Power Automate.
+     * Note: you can also use a list. just separate emails with a single comma (`,`). The email `noreply-apps-scripts-notifications@google.com` also provides notifications for errors.
 
 ### Set up CI
 
