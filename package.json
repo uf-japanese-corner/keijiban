@@ -1,0 +1,19 @@
+{
+  "name": "keijiban",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Forwards UF Japanese listserv emails to Discord (Apps Script)",
+  "scripts": {
+    "login": "clasp login",
+    "logout": "clasp logout",
+    "pull": "clasp pull",
+    "push": "clasp push",
+    "watch": "clasp push -w",
+    "status": "clasp status",
+    "deploy": "clasp deploy"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@google/clasp": "^2.4.2"
+  }
+}
