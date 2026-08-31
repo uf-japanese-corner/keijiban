@@ -32,9 +32,9 @@ jobs:
           CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
 
       - name: Copy clasp envars
-        run: echo "$CLASP_JSON_DEV" > .clasp.json
+        run: echo "$CLASP_JSON" > .clasp.json
         env:
-          CLASP_JSON: ${{ secrets.CLASP_JSON }}
+          CLASP_JSON: ${{ secrets.CLASP_JSON_DEV }}
 
       - name: List files to push
         run: npx clasp status
