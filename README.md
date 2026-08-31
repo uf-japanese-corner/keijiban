@@ -57,4 +57,11 @@ When you are ready for messages to be posted publically:
 3. Add trigger > under "select timer based on hour" select "date based timer" and set to a reasonable hour of the day (like 10~11 AM)
 
 ## Testing
-TODO
+
+Once you have everything set up, the general procedure follows.
+
+1. Go to your deployment. In the editor click on `test.gs`.
+
+2. You have a few functional available to you in the run dropdown in the ribbon.
+   * To sanity check that the webhook can post to discord, use `testSendMessage`
+   * After I would send keijiban an email and make sure its unread. Then use `runOnce`. If behavior is as expected, then the webhook should be ready.
